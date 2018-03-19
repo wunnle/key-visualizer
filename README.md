@@ -1,7 +1,7 @@
 # Key Visualizer
 It shows you the keys you are pressing visually in real time.
 
-[https://wunnle.github.io/key-visualizer/](See the demo here)
+[See the demo here](https://wunnle.github.io/key-visualizer/)
 
 #### `npm install` or `yarn`
 
