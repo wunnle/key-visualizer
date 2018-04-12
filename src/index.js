@@ -5,15 +5,27 @@ if (!PRODUCTION) {
 import './css/style.scss'
 
 document.onkeydown = (e) => {
-  const key = document.querySelector('.key');
+  const keyCopy = document.querySelector('.key').cloneNode()
+  console.log(keyCopy)
+  document.querySelector('.key-holder').appendChild(keyCopy)
+  const key = document.querySelector('.key-holder div:last-of-type');
   key.innerHTML = keycodeToKeyName(e.key)
   if(key.innerHTML.length > 1) {
     key.classList.add('key--longname')
   } else {
     key.classList.remove('key--longname')
   }
-  document.querySelector('.key').classList.remove('show')
-  setTimeout(() => document.querySelector('.key').classList.add('show'), 0)
+  key.classList.remove('show')
+  setTimeout(() => key.classList.add('show'), 0)
+
+  const allKeys = document.querySelectorAll('.key-holder .key')
+  if(allKeys.length > 10) {
+    allKeys[0].remove()
+  }
+
+  setTimeout(() => keyCopy.remove(), 1400)
+
+
 }
 
 
